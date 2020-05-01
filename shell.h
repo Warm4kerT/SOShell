@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 #include <fcntl.h>
 #include <string.h>
 #include <unistd.h>
@@ -14,7 +15,7 @@ typedef struct{
     int tempo;
 }aviso_t;
 
-typedef struct { 
+typedef struct{ 
     char fonte[100];
     char destino[100]; 
     int buffsize;
