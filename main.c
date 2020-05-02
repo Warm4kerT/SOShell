@@ -76,14 +76,7 @@ int builtin (char **args)
     return 1;
   }
 
-  if (strcmp(args[0],"socp") == 0){ /*file copy*/
-    if(args[3]!=NULL){
-      socp(args[1],args[2],atoi(args[3]));
-    }else{
-      socp(args[1],args[2],128);
-    }
-    return 1;
-  }
+
 
   if (strcmp(args[0],"calc") == 0){
    if(args[4]!=NULL){
@@ -147,6 +140,15 @@ int builtin (char **args)
     return 1;
   }
 
+  if (strcmp(args[0],"socp") == 0){ /*file copy*/
+    if(args[3]!=NULL){
+      socp(args[1],args[2],atoi(args[3]));
+    }else{
+      socp(args[1],args[2],128);
+    }
+    return 1;
+  }
+  
   if (strcmp(args[0],"socpth") == 0){ /*file copy*/
     pthread_t th;
     copiar_t *cp=(copiar_t *)malloc(sizeof(copiar_t));
