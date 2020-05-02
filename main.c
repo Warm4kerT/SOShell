@@ -133,17 +133,17 @@ int builtin (char **args)
     return 1;
   }
 
+  if(strcmp(args[0],"avisoTeste")==0){
+    aviso(args[1],atoi(args[2]));
+    return 1;
+  }
+
   if(strcmp(args[0],"aviso")==0){
     pthread_t th;
     aviso_t *ptr=(aviso_t *)malloc(sizeof(aviso_t));
     strcpy(ptr->msg, args[1]);
     ptr->tempo=atoi(args[2]);
     pthread_create(&th, NULL, avisowrapper,(void *)ptr);
-    return 1;
-  }
-
-  if(strcmp(args[0],"avisoTeste")==0){
-    aviso(args[1],atoi(args[2]));
     return 1;
   }
 
