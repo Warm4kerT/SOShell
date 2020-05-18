@@ -37,3 +37,11 @@ void setRunPerm(char *file){
         perror("Error\n");
     }
 }
+
+void remReadPerm(char *file){
+    if(chmod(file, S_IRWXU | S_IWGRP | S_IXGRP | S_IWOTH| S_IXOTH)==0){
+        printf("Sucesseful\n");
+    }else{
+        perror("Error changing perm!!!\n");
+    }
+}

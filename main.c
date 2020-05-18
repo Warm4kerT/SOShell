@@ -184,6 +184,16 @@ int builtin (char **args)
     return 1;
   }
 
+  if (strcmp(args[0],"removerl") == 0){
+    if(args[1]!=NULL){
+      remReadPerm(args[1]);
+    }else{
+      perror("Input error!!\n");
+    }
+
+    return 1;
+  }
+
   /* IMPORTANTE : e
    Devolver 0 para indicar que não existe comando embutido e que
    será executado usando exec() na função execute.c
