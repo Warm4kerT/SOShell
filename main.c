@@ -174,7 +174,7 @@ int builtin (char **args)
     return 1;
   }
 
-  if (strcmp(args[0],"setx") == 0){
+  if (strcmp(args[0],"setx") == 0){ /*Set Run Permissions*/
     if(args[1]!=NULL){
       setRunPerm(args[1]);
     }else{
@@ -184,7 +184,7 @@ int builtin (char **args)
     return 1;
   }
 
-  if (strcmp(args[0],"removerl") == 0){
+  if (strcmp(args[0],"removerl") == 0){ /*Remove Read Permissions*/
     if(args[1]!=NULL){
       remReadPerm(args[1]);
     }else{
