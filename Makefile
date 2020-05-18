@@ -10,7 +10,7 @@
 CC=cc
 FLAGS=-c -Wall 
 LIBS=-lm
-OBS=main.o execute.o parse.o socp.o calc.o isjpg.o aviso.c
+OBS=main.o execute.o parse.o socp.o calc.o isjpg.o aviso.c perm.o
 
 #Alvo por defeito é o primeiro
 all :  soshell
@@ -29,6 +29,8 @@ socp.o : shell.h socp.c
 	$(CC) $(FLAGS) socp.c
 aviso.o : shell.h aviso.c
 	$(CC) $(FLAGS) aviso.c -lpthread
+perm.o: shell.h perm.c
+	$(CC) $(FLAGS) perm.c
 soshell : $(OBS)
 	$(CC)  -o soshell  $(OBS) $(LIBS) -lpthread
 clean limpar:

@@ -9,6 +9,7 @@
 #include <pthread.h>
 #include <ctype.h>
 #include <math.h>
+#include <dirent.h>
 
 typedef struct{
     char msg[100];
@@ -44,6 +45,8 @@ void aviso(char *mesg, int tempo);
 void *avisowrapper(void *args);
 
 void *socpth(void *args);
+
+int biggestFile(char *file1, char *file2);
 
 /* constantes que podem tornar uteis*/
 

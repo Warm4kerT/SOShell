@@ -76,8 +76,6 @@ int builtin (char **args)
     return 1;
   }
 
-
-
   if (strcmp(args[0],"calc") == 0){
    if(args[4]!=NULL){
       perror("Too many arguments!!!");
@@ -162,6 +160,17 @@ int builtin (char **args)
     }
     
     pthread_create(&th, NULL, socpth,(void *)cp);
+    return 1;
+  }
+
+  if (strcmp(args[0],"maior") == 0){
+    
+    if(args[1]!=NULL && args[2]!=NULL){
+      biggestFile(args[1],args[2]);
+    }else{
+      perror("Input error!!\n");
+    }
+    
     return 1;
   }
 
