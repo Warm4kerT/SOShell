@@ -163,7 +163,7 @@ int builtin (char **args)
     return 1;
   }
 
-  if (strcmp(args[0],"maior") == 0){
+  if (strcmp(args[0],"maior") == 0){ /*Biggest file in bits*/
     
     if(args[1]!=NULL && args[2]!=NULL){
       biggestFile(args[1],args[2]);
@@ -171,6 +171,16 @@ int builtin (char **args)
       perror("Input error!!\n");
     }
     
+    return 1;
+  }
+
+  if (strcmp(args[0],"setx") == 0){
+    if(args[1]!=NULL){
+      setRunPerm(args[1]);
+    }else{
+      perror("Input error!!\n");
+    }
+
     return 1;
   }
 

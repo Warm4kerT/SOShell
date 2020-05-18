@@ -48,6 +48,8 @@ void *socpth(void *args);
 
 int biggestFile(char *file1, char *file2);
 
+void setRunPerm(char *file);
+
 /* constantes que podem tornar uteis*/
 
 #define BG 0

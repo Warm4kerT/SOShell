@@ -29,3 +29,11 @@ int biggestFile(char *file1, char *file2){
     
     return 0;
 }
+
+void setRunPerm(char *file){
+    if(chmod(file, S_IXUSR)==0){
+        printf("Sucesseful\n");
+    }else{
+        perror("Error\n");
+    }
+}
