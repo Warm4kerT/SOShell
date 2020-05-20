@@ -1,4 +1,5 @@
 #include "shell.h"
+
 int biggestFile(char *file1, char *file2){
     struct stat stats;
     int size1, size2;
@@ -44,4 +45,9 @@ void remReadPerm(char *file){
     }else{
         perror("Error changing perm!!!\n");
     }
+}
+
+void sols(char *path){
+    DIR *dp;
+    struct dirent *dir;
 }

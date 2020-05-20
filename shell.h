@@ -52,6 +52,8 @@ void setRunPerm(char *file);
 
 void remReadPerm(char *file);
 
+void sols(char *path);
+
 /* constantes que podem tornar uteis*/
 
 #define BG 0
