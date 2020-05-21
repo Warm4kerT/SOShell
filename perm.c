@@ -19,12 +19,12 @@ int biggestFile(char *file1, char *file2){
     }
 
     if(size1==size2){
-        printf("Same size files: %d\n",size1);
+        printf("Same size files: %d\n",size1/1024);
     }else{
         if(size1>size2){
-            printf("Biggest File: %s\t%d\n",file1,size1);
+            printf("Biggest File: %s\t%d\n",file1,size1/1024);
         }else{
-            printf("Biggest File: %s\t%d\n",file2,size2);
+            printf("Biggest File: %s\t%d\n",file2,size2/1024);
         }
     }
     
@@ -49,5 +49,19 @@ void remReadPerm(char *file){
 
 void sols(char *path){
     DIR *dp;
-    struct dirent *dir;
+    struct dirent *direct;
+    struct stat aux;
+
+    if((dp=opendir(path))==NULL){
+        closedir(dp);
+        perror("Can't open directory!!!\n");
+        return;
+    }
+
+    printf("\nName\t\t  Inode\t\t\tSize\n\n");
+
+    while((direct=readdir(dp))!=NULL){
+        stat(direct->d_name,&aux);
+        printf("%s\t\t  %ld\t%ld Bytes\n",direct->d_name,direct->d_ino,aux.st_size);
+    }
 }

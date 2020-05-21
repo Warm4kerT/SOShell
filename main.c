@@ -11,7 +11,9 @@ int main ()
   strcpy (prompt, "SOSHELL: Introduza um comando : prompt>");
   while (1)
   {
+    printf("\033[1;32m"); 
     printf ("%s", prompt);
+    printf("\033[0m");
     if (fgets (linha, 1023, stdin) == NULL)
     {
       printf("\n");
@@ -40,6 +42,16 @@ int builtin (char **args)
     return 1;
   }
 
+  if (strcmp (args[0],"help") == 0){
+    printf("sair\t\t\t\tSair da Shell\nhelp\t\t\t\tEsta pagina\n42\t\t\t\tEasterEgg\nobterinfo\t\t\tInfo da Shell\n");
+    printf("PS!= <String>\t\t\tMudança do prompt\nquemsoueu\t\t\tInfo do user\ncd <path>\t\t\tMudança de diretório\n");
+    printf("calc <V> <Op> <V>\t\tCalculadora\nbits <V> <Op> <V>\t\tCalculadora Binária\nisjpeg <filename>\t\tVerifica se o ficheiro é um jpeg\n");
+    printf("socp <InsertFile> <OutputFile> <Buffsize>\tCopia de ficheiros\nsocpth <InsertFile> <OutputFile> <Buffsize>\t Copia com threats\n");
+    printf("maior <filename> <filename>\tMaior ficheiro\nsols <dirPath>\t\t\tLista de Ficheiros\n");
+
+    return 1;
+  }
+
   if (strncmp (args[0], "42", 2) == 0) /*EasterEgg*/
   {
     printf ("42 is the answer to life the universe and everything\n");
@@ -47,7 +59,7 @@ int builtin (char **args)
   }
 
   if (strcmp(args[0],"obterinfo") == 0){ /*Obter Info sobre a shell*/
-    printf("SOShell 2020 versão 1.0\n");
+    printf("SOShell 2020 versão 1.2.9\n");
     return 1;
   }
 
@@ -194,7 +206,22 @@ int builtin (char **args)
     return 1;
   }
 
-  
+  if (strcmp(args[0],"sols") == 0){ /*Basicamente um ls*/
+    if(args[1]==NULL){
+      char cwd[100];
+      getcwd(cwd,sizeof(cwd));
+      printf("%s",cwd);
+      sols(cwd);
+    }else{
+      if(strcmp(args[1],"~") == 0){
+        sols(getenv("HOME"));
+      }else{
+        sols(args[1]);
+      }
+    }
+
+    return 1;
+  }
 
   /* IMPORTANTE : e
    Devolver 0 para indicar que não existe comando embutido e que
