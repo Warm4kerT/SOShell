@@ -11,9 +11,7 @@ int main ()
   strcpy (prompt, "SOSHELL: Introduza um comando : prompt>");
   while (1)
   {
-    printf("\033[1;32m"); 
-    printf ("%s", prompt);
-    printf("\033[0m");
+    printf ("\033[1;32m%s\033[0m", prompt);
     if (fgets (linha, 1023, stdin) == NULL)
     {
       printf("\n");
