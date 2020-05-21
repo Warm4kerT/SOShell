@@ -173,7 +173,7 @@ int builtin (char **args)
     return 1;
   }
 
-  if (strcmp(args[0],"maior") == 0){ /*Biggest file in bits*/
+  if (strcmp(args[0],"maior") == 0){ /*Biggest file in Kbits*/
     
     if(args[1]!=NULL && args[2]!=NULL){
       biggestFile(args[1],args[2]);
@@ -208,7 +208,6 @@ int builtin (char **args)
     if(args[1]==NULL){
       char cwd[100];
       getcwd(cwd,sizeof(cwd));
-      printf("%s",cwd);
       sols(cwd);
     }else{
       if(strcmp(args[1],"~") == 0){
