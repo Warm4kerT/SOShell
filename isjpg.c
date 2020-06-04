@@ -17,11 +17,9 @@ void verifica(char *nomeFile){
 
 }
 
-int isjpg(int fileDescriptor){ //esboço da função
+int isjpg(int fileDescriptor){
     unsigned char b[4];
     read(fileDescriptor,b,4);
-    
-    //voltar ao inicio do ficheiro com lseek
     if ( b[0]==0xff && b[1]==0xd8 && b[2]==0xff && b[3]==0xe0)
         return 1;
     return 0;
